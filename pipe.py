@@ -19,5 +19,3 @@ class Pipe(pygame.sprite.Sprite):
         self.rect.x -= self.speedx
         if self.rect.right < 0:
             self.kill()
-
-

@@ -25,8 +25,13 @@ def draw_score():
 
 def draw_delay():
     for i in range(delay_time, 0, -1):
+        window.blit(bg_img, (0, 0))  # 重绘背景图
+        pipe_group.draw(window)  # 重绘管道
+        window.blit(ground_img, (ground_x, ground_top))  # 重绘地面
+        bird_group.draw(window)  # 重绘鸟
+        draw_score()  # 重绘分数
         delay_text = delay_font.render(str(i), True, WHITE)
-        window.blit(delay_text, (SCREEN_WIDTH - 220 - i*100, 220))
+        window.blit(delay_text, (SCREEN_WIDTH / 2 - delay_text.get_width() / 2, SCREEN_HIEGHT / 2 - delay_text.get_height() / 2))
         pygame.display.update()
         pygame.time.wait(1000)
 
